@@ -12,3 +12,72 @@ Je vous donne également accès au sujet du TP final en avance [ici](https://doc
 Dans le build, j'ai ajouté un dépendance à Spring Security qui n'est disponible que lorsque vous utiliser les tp.
 
 Le nom du module doit contenir tp-display-quote pour obtenir cette dépendance (vous le verrez dans la correction).
+
+# Activer spring security
+
+Pour activer Spring Security il faut rajouter la dépendance suivante :
+```kotlin
+implementation("org.springframework.boot:spring-boot-starter-security")
+```
+
+Voici une classe de configuration de base de Spring Security en Java
+```java
+
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .successHandler((request, response, authentication) -> {
+                    request.getSession().setAttribute("username", authentication.getName());
+                    response.sendRedirect("/main");
+                }).permitAll();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser(User.withDefaultPasswordEncoder().username("grut").password("APass").roles("USER"))
+                .withUser(User.withDefaultPasswordEncoder().username("admin").password("admin").roles("ADMIN"));
+    }
+}
+```
+
+La version équivalante en Kotlin
+```kotlin
+
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .successHandler((request, response, authentication) -> {
+                    request.getSession().setAttribute("username", authentication.getName());
+                    response.sendRedirect("/main");
+                }).permitAll();
+    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser(User.withDefaultPasswordEncoder().username("grut").password("APass").roles("USER"))
+                .withUser(User.withDefaultPasswordEncoder().username("admin").password("admin").roles("ADMIN"));
+    }
+}
+```
+
+Ces classes vous permettront de gérer la sécurité avec SpringSecurity, de créer des uses
