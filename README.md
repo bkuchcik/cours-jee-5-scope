@@ -1,4 +1,4 @@
-#Cours sur les scopes 
+# Cours sur les scopes 
 
 * [Le cours](https://docs.google.com/presentation/d/e/2PACX-1vTybYTmWpi5Cuw2MU9DYU6AvmVttDBWWDH7VdXiyrob7hW17pAa86ClJ6GxJsiahltNVJr8iNvynX3V/pub?start=false&loop=false&delayms=3000)
 * [Le tp](https://docs.google.com/document/d/e/2PACX-1vSS5LpgPSgnE7sRaGBNGyxU0PQD2eBibZ18PtrR0VnJhhNNV1zWjc3FOdMiqJtj2CPB4PxhwdZ3JAyz/pub)
