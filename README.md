@@ -5,8 +5,6 @@
 
 Pour vous aider avec Spring Security suivez le [guide de paramétrage](https://docs.spring.io/spring-security/site/docs/5.0.0.RELEASE/reference/htmlsingle/)
 
-Je vous donne également accès au sujet du TP final en avance [ici](https://docs.google.com/document/d/e/2PACX-1vQf8xjLLA6k1AYByIrpM3SGUa4uxnBtOMvfD_ubLmBObNq2sC3cb3zmODAqOC-ClOvZaEwNYUe-UPmK/pub)
-
 ## Avertissement
 
 Dans le build, j'ai ajouté un dépendance à Spring Security qui n'est disponible que lorsque vous utiliser les tp.
